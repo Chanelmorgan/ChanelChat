@@ -12,7 +12,7 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="625.0">
          <children>
-            <TextField layoutX="280.0" layoutY="145.0" prefHeight="26.0" prefWidth="183.0" />
+            <TextField fx:id="tf_username" layoutX="280.0" layoutY="145.0" prefHeight="26.0" prefWidth="183.0" />
             <Label layoutX="155.0" layoutY="148.0" prefHeight="21.0" prefWidth="100.0" text="Username">
                <font>
                   <Font name="Arial Bold" size="18.0" />
@@ -28,7 +28,7 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="246.0" layoutY="276.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="130.0" style="-fx-background-color: #FFD1F8; -fx-cursor: hand;" text="Login">
+            <Button fx:id="button_login" layoutX="246.0" layoutY="276.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="130.0" style="-fx-background-color: #FFD1F8; -fx-cursor: hand;" text="Login">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -38,12 +38,12 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Button layoutX="312.0" layoutY="309.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign up!" textFill="#c307f2" underline="true">
+            <Button fx:id="button_sign_up" layoutX="312.0" layoutY="309.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign up!" textFill="#c307f2" underline="true">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Button>
-            <PasswordField layoutX="280.0" layoutY="200.0" prefHeight="26.0" prefWidth="183.0" />
+            <PasswordField fx:id="tf_password" layoutX="280.0" layoutY="200.0" prefHeight="26.0" prefWidth="183.0" />
          </children>
       </AnchorPane>
    </children>
