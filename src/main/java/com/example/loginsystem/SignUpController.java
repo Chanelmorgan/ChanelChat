@@ -12,10 +12,10 @@ import java.util.ResourceBundle;
 public class SignUpController implements Initializable {
 
     @FXML
-    private Button button_signup;
+    private Button signup_button;
 
     @FXML
-    private Button button_log_in;
+    private Button button_login;
 
     @FXML
     private RadioButton rb_wittcode;
@@ -40,7 +40,7 @@ public class SignUpController implements Initializable {
         rb_wittcode.setSelected(true);
 
 
-        button_signup.setOnAction(new EventHandler<ActionEvent>() {
+        signup_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 // Make sure all the fields are filled in to register
@@ -58,7 +58,7 @@ public class SignUpController implements Initializable {
             }
         });
 
-        button_log_in.setOnAction(new EventHandler<ActionEvent>() {
+        button_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "hello-view.fxml", "Log in!",  null, null);

@@ -17,7 +17,7 @@ public class Controller implements Initializable {
     private Button button_login;
 
     @FXML
-    private Button button_sign;
+    private Button button_sign_up;
 
     @FXML
     private TextField tf_username;
@@ -36,7 +36,7 @@ public class Controller implements Initializable {
             }
         });
 
-        button_sign.setOnAction(new EventHandler<ActionEvent>() {
+        button_sign_up.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "sign-up.fxml", "Sign-up!", null, null);

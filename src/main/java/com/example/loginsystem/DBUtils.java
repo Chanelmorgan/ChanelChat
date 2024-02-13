@@ -26,34 +26,23 @@ import java.io.IOException;
 public class DBUtils {
 
     public static void changeScene(ActionEvent event, String fxmlFile, String title, String username, String favChannel) {
-        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
+            Parent root = loader.load();
 
-        // validation check
-        if (username != null && favChannel != null) {
-            try {
-                FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
-                root = loader.load();
+            if (username != null && favChannel != null) {
                 LoggedInController loggedInController = loader.getController();
                 loggedInController.setUserInformation(username, favChannel);
-            } catch (IOException e) {
-                e.printStackTrace();
             }
-        } else {
-            // the user is not passing any information just switching between log in and sign up
-            try {
-                root = FXMLLoader.load(DBUtils.class.getResource(fxmlFile));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle(title);
+            stage.setScene(new Scene(root, 600, 400));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        // A stage is essentially the window of the GUI. The scene is what is displayed in this window.
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle(title);
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
-
-
     }
 
     public static void signUpUser(ActionEvent event, String username, String password, String favChannel) {
@@ -78,7 +67,7 @@ public class DBUtils {
                 alert.setContentText("You cannot use this username");
                 alert.show();
             } else {
-                psInsertStatement = connection.prepareStatement("INSERT INTO users (username, password, favChannel VALUES (?, ?, ?)");
+                psInsertStatement = connection.prepareStatement("INSERT INTO users (username, password, favChannel) VALUES (?, ?, ?)");
                 psInsertStatement.setString(1, username);
                 psInsertStatement.setString(2, password);
                 psInsertStatement.setString(3, favChannel);
