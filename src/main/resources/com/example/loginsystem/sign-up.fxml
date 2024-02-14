@@ -7,54 +7,54 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="669.0" style="-fx-border-radius: 25;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystem.SignUpController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="700.0" style="-fx-border-radius: 25;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystem.SignUpController">
    <children>
-      <AnchorPane prefHeight="504.0" prefWidth="675.0" style="-fx-background-color: #B5A2E9; -fx-border-radius: 50;">
+      <AnchorPane prefHeight="497.0" prefWidth="701.0" style="-fx-background-color: #B5A2E9; -fx-border-radius: 50;">
          <children>
-            <TextField fx:id="tf_username" layoutX="192.0" layoutY="173.0" prefHeight="33.0" prefWidth="281.0" promptText="Username">
+            <TextField fx:id="tf_username" layoutX="203.0" layoutY="174.0" prefHeight="33.0" prefWidth="281.0" promptText="Username">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font></TextField>
-            <TextField fx:id="tf_first_name" layoutX="193.0" layoutY="129.0" prefHeight="33.0" prefWidth="121.0" promptText="First Name">
+            <TextField fx:id="tf_first_name" layoutX="204.0" layoutY="130.0" prefHeight="33.0" prefWidth="121.0" promptText="First Name">
                <font>
-                  <Font name="System Bold" size="13.0" />
+                  <Font name="Arial Bold" size="13.0" />
                </font></TextField>
-            <Button fx:id="signup_button" layoutX="257.0" layoutY="371.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" style="-fx-background-color: #98979B;" text="Sign up" textFill="WHITE">
+            <Button fx:id="signup_button" layoutX="268.0" layoutY="372.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" style="-fx-background-color: #98979B; fx-shape: 'M 10 0 L 190 0 Q 200 0 200 10 L 200 90 Q 200 100 190 100 L 10 100 Q 0 100 0 90 L 0 10 Q 0 0 10 0 Z';" text="Sign up" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
-            <Label layoutX="203.0" layoutY="408.0" text="Already have an account?" textFill="WHITE">
+            <Label layoutX="214.0" layoutY="409.0" text="Already have an account?" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="button_login" layoutX="371.0" layoutY="403.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Login here" textFill="#e4e4e4" underline="true">
+            <Button fx:id="button_login" layoutX="382.0" layoutY="404.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Login here" textFill="#e4e4e4" underline="true">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <Label layoutX="204.0" layoutY="50.0" prefHeight="45.0" prefWidth="282.0" text="Create Account" textFill="WHITE">
+            <Label layoutX="215.0" layoutY="51.0" prefHeight="45.0" prefWidth="282.0" text="Create Account" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="36.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_password" layoutX="192.0" layoutY="269.0" prefHeight="33.0" prefWidth="283.0" promptText="Password">
+            <TextField fx:id="tf_password" layoutX="203.0" layoutY="270.0" prefHeight="33.0" prefWidth="283.0" promptText="Password">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_confirm" layoutX="191.0" layoutY="313.0" prefHeight="33.0" prefWidth="285.0" promptText="Confirm Password">
+            <TextField fx:id="tf_confirm" layoutX="202.0" layoutY="314.0" prefHeight="33.0" prefWidth="285.0" promptText="Confirm Password">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_email" layoutX="192.0" layoutY="222.0" prefHeight="33.0" prefWidth="281.0" promptText="Email">
+            <TextField fx:id="tf_email" layoutX="203.0" layoutY="223.0" prefHeight="33.0" prefWidth="281.0" promptText="Email">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_last_name" layoutX="352.0" layoutY="129.0" prefHeight="33.0" prefWidth="121.0" promptText="Last Name">
+            <TextField fx:id="tf_last_name" layoutX="363.0" layoutY="130.0" prefHeight="33.0" prefWidth="121.0" promptText="Last Name">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

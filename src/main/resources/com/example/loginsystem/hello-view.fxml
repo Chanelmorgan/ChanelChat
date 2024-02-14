@@ -9,33 +9,33 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystem.Controller">
    <children>
-      <AnchorPane prefHeight="462.0" prefWidth="705.0" style="-fx-background-color: #B5A2E9;">
+      <AnchorPane prefHeight="462.0" prefWidth="701.0" style="-fx-background-color: #B5A2E9;">
          <children>
-            <TextField fx:id="tf_username" layoutX="218.0" layoutY="139.0" prefHeight="33.0" prefWidth="258.0" promptText="Username">
+            <TextField fx:id="tf_username" layoutX="218.0" layoutY="168.0" prefHeight="33.0" prefWidth="258.0" promptText="Username">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font></TextField>
-            <Label layoutX="296.0" layoutY="70.0" prefHeight="42.0" prefWidth="100.0" text="Login" textFill="WHITE">
+            <Label layoutX="296.0" layoutY="99.0" prefHeight="42.0" prefWidth="100.0" text="Login" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="36.0" />
                </font>
             </Label>
-            <Button fx:id="button_login" layoutX="281.0" layoutY="262.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="130.0" style="-fx-background-color: #98979B; -fx-cursor: hand;" text="Login" textFill="WHITE">
+            <Button fx:id="button_login" layoutX="281.0" layoutY="291.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="130.0" style="-fx-background-color: #98979B; -fx-cursor: hand;" text="Login" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
-            <Label layoutX="266.0" layoutY="314.0" text="Not a user? " textFill="WHITE">
+            <Label layoutX="266.0" layoutY="343.0" text="Not a user? " textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="button_sign_up" layoutX="336.0" layoutY="309.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign up!" textFill="#d0d0d0" underline="true">
+            <Button fx:id="button_sign_up" layoutX="336.0" layoutY="338.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign up!" textFill="#d0d0d0" underline="true">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="tf_password" layoutX="217.0" layoutY="198.0" prefHeight="33.0" prefWidth="258.0" promptText="Password">
+            <TextField fx:id="tf_password" layoutX="217.0" layoutY="227.0" prefHeight="33.0" prefWidth="258.0" promptText="Password">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>

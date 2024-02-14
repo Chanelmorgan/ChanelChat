@@ -18,37 +18,39 @@ public class SignUpController implements Initializable {
     private Button button_login;
 
     @FXML
-    private RadioButton rb_wittcode;
-
-    @FXML
-    private RadioButton rb_other;
-
-    @FXML
     private TextField tf_username;
 
     @FXML
     private TextField tf_password;
 
+    @FXML
+    private TextField tf_first_name;
+
+    @FXML
+    private TextField tf_last_name;
+
+    @FXML
+    private TextField tf_email;
+
+    @FXML
+    private TextField tf_confirm;
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // if the radio buttons were not in the toggle group then they would be able to bothj be selected
-        ToggleGroup toggleGroup = new ToggleGroup();
-        rb_wittcode.setToggleGroup(toggleGroup);
-        rb_other.setToggleGroup(toggleGroup);
 
-        // this one is selected when you open up
-        rb_wittcode.setSelected(true);
+
 
 
         signup_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                // Make sure all the fields are filled in to register
-                String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
-                // to remove white spaces in the username
+                // check the passwords match
 
+                // to remove white spaces in the username
                 if (!tf_username.getText().trim().isEmpty() && !tf_password.getText().trim().isEmpty()) {
-                    DBUtils.signUpUser(event, tf_username.getText(), tf_password.getText(), toggleName);
+                    DBUtils.signUpUser(event, tf_username.getText(), tf_password.getText());
                 } else {
                     System.out.println("Please fill in all information!");
                     Alert alert = new Alert(Alert.AlertType.ERROR);

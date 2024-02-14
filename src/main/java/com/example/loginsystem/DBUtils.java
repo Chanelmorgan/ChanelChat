@@ -37,7 +37,7 @@ public class DBUtils {
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle(title);
-            stage.setScene(new Scene(root, 600, 400));
+            stage.setScene(new Scene(root, 700, 550));
             stage.show();
 
         } catch (IOException e) {
@@ -45,7 +45,7 @@ public class DBUtils {
         }
     }
 
-    public static void signUpUser(ActionEvent event, String username, String password, String favChannel) {
+    public static void signUpUser(ActionEvent event, String username, String password) {
         // To interact with the database
         Connection connection = null;
         PreparedStatement psInsertStatement = null;
@@ -70,11 +70,11 @@ public class DBUtils {
                 psInsertStatement = connection.prepareStatement("INSERT INTO users (username, password, favChannel) VALUES (?, ?, ?)");
                 psInsertStatement.setString(1, username);
                 psInsertStatement.setString(2, password);
-                psInsertStatement.setString(3, favChannel);
+                psInsertStatement.setString(3, "Other");
                 psInsertStatement.executeUpdate();
 
                 // change the scene once the user log in/ creates an account
-                changeScene(event, "Logged-in.fxml", "Welcome!", username, favChannel);
+                changeScene(event, "Logged-in.fxml", "Welcome!", username, "other");
             }
 
 
