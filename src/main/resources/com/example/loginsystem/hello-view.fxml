@@ -35,7 +35,7 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="tf_username1" layoutX="217.0" layoutY="198.0" prefHeight="33.0" prefWidth="258.0" promptText="Password">
+            <TextField fx:id="tf_password" layoutX="217.0" layoutY="198.0" prefHeight="33.0" prefWidth="258.0" promptText="Password">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
