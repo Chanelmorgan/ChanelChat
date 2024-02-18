@@ -19,8 +19,6 @@ public class LoggedInController implements Initializable {
     @FXML
     private Label label_welcome;
 
-    @FXML
-    private Label label_fav_channel;
 
 
 
@@ -31,14 +29,13 @@ public class LoggedInController implements Initializable {
         button_logout.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DBUtils.changeScene(actionEvent, "hello-view.fxml", "Log in!", null, null);
+                DBUtils.changeScene(actionEvent, "hello-view.fxml", "Log in!", null);
             }
         });
 
     }
 
-    public void setUserInformation(String username, String favChannel){
+    public void setUserInformation(String username){
         label_welcome.setText("Welcome " + username + "!");
-       label_fav_channel.setText("Your favorite YouTube channel is " + favChannel + "!");
     }
 }

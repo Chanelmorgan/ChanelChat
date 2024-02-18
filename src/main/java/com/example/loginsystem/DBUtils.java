@@ -25,14 +25,14 @@ import java.io.IOException;
  */
 public class DBUtils {
 
-    public static void changeScene(ActionEvent event, String fxmlFile, String title, String username, String favChannel) {
+    public static void changeScene(ActionEvent event, String fxmlFile, String title, String username) {
         try {
             FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
             Parent root = loader.load();
 
-            if (username != null && favChannel != null) {
+            if (username != null) {
                 LoggedInController loggedInController = loader.getController();
-                loggedInController.setUserInformation(username, favChannel);
+                loggedInController.setUserInformation(username);
             }
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -45,7 +45,7 @@ public class DBUtils {
         }
     }
 
-    public static void signUpUser(ActionEvent event, String username, String password) {
+    public static void signUpUser(ActionEvent event, String username, String password, String firstName, String lastName, String email) {
         // To interact with the database
         Connection connection = null;
         PreparedStatement psInsertStatement = null;
@@ -67,14 +67,16 @@ public class DBUtils {
                 alert.setContentText("You cannot use this username");
                 alert.show();
             } else {
-                psInsertStatement = connection.prepareStatement("INSERT INTO users (username, password, favChannel) VALUES (?, ?, ?)");
+                psInsertStatement = connection.prepareStatement("INSERT INTO users (username, password, first_name, last_name, email) VALUES (?, ?, ?, ?, ?)");
                 psInsertStatement.setString(1, username);
                 psInsertStatement.setString(2, password);
-                psInsertStatement.setString(3, "Other");
+                psInsertStatement.setString(3, firstName);
+                psInsertStatement.setString(4, lastName);
+                psInsertStatement.setString(5, email);
                 psInsertStatement.executeUpdate();
 
                 // change the scene once the user log in/ creates an account
-                changeScene(event, "Logged-in.fxml", "Welcome!", username, "other");
+                changeScene(event, "Logged-in.fxml", "Welcome!", username);
             }
 
 
@@ -114,7 +116,7 @@ public class DBUtils {
         ResultSet resultSet = null;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafxLogin", "root", "Twins2012");
-            preparedStatement = connection.prepareStatement("SELECT password, favChannel FROM users WHERE username = ?");
+            preparedStatement = connection.prepareStatement("SELECT password, first_name FROM users WHERE username = ?");
             preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();
 
@@ -127,10 +129,10 @@ public class DBUtils {
                 // compare the passwords
                 while(resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
-                    String retrievedChannel = resultSet.getString("favChannel");
+                    String retrievedChannel = resultSet.getString("first_name");
                     if(retrievedPassword.equals(password)){
                         // change the scence
-                        changeScene(event, "logged-in.fxml", "Welcome!", username, retrievedChannel);
+                        changeScene(event, "logged-in.fxml", "Welcome!", username);
 
                     } else {
                         System.out.println("passwords did not match");

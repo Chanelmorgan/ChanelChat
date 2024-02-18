@@ -49,9 +49,14 @@ public class SignUpController implements Initializable {
                 // check the passwords match
 
                 // to remove white spaces in the username
-                if (!tf_username.getText().trim().isEmpty() && !tf_password.getText().trim().isEmpty()) {
-                    DBUtils.signUpUser(event, tf_username.getText(), tf_password.getText());
-                } else {
+                if (!tf_username.getText().trim().isEmpty() && !tf_password.getText().trim().isEmpty() && tf_password.getText().trim().equals(tf_confirm.getText().trim())) {
+                    DBUtils.signUpUser(event, tf_username.getText(), tf_password.getText(), tf_first_name.getText(), tf_last_name.getText(), tf_email.getText());
+                } else if(!tf_password.getText().trim().equals(tf_confirm.getText().trim())){
+                    System.out.println("Passwords do not match");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Passwords do not match!");
+                    alert.show();
+                } else{
                     System.out.println("Please fill in all information!");
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setContentText("Please fill in all information to sign up!");
@@ -63,7 +68,7 @@ public class SignUpController implements Initializable {
         button_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "hello-view.fxml", "Log in!",  null, null);
+                DBUtils.changeScene(event, "hello-view.fxml", "Log in!",  null);
             }
         });
 
