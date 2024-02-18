@@ -23,7 +23,7 @@ public class LoggedInController implements Initializable {
     private Button button_create_chat;
 
     @FXML
-    private Button button_create_group;
+    private Button button_join_chat;
 
 
 
@@ -43,6 +43,15 @@ public class LoggedInController implements Initializable {
                 DBUtils.changeScene(actionEvent, "create-group.fxml", "Create Chat!", null);
             }
         });
+
+        button_join_chat.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                DBUtils.changeScene(actionEvent, "join-group.fxml", "Join Chat!", null);
+            }
+        });
+
+
 
 
     }
