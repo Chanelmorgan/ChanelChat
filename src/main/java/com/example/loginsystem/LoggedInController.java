@@ -19,6 +19,11 @@ public class LoggedInController implements Initializable {
     @FXML
     private Label label_welcome;
 
+    @FXML
+    private Button button_create_chat;
+
+    @FXML
+    private Button button_create_group;
 
 
 
@@ -32,6 +37,13 @@ public class LoggedInController implements Initializable {
                 DBUtils.changeScene(actionEvent, "hello-view.fxml", "Log in!", null);
             }
         });
+        button_create_chat.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                DBUtils.changeScene(actionEvent, "create-group.fxml", "Create Chat!", null);
+            }
+        });
+
 
     }
 

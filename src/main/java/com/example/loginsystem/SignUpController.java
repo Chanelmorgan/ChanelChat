@@ -46,9 +46,7 @@ public class SignUpController implements Initializable {
         signup_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                // check the passwords match
-
-                // to remove white spaces in the username
+                // to remove white spaces in the username and checking that the passwords match
                 if (!tf_username.getText().trim().isEmpty() && !tf_password.getText().trim().isEmpty() && tf_password.getText().trim().equals(tf_confirm.getText().trim())) {
                     DBUtils.signUpUser(event, tf_username.getText(), tf_password.getText(), tf_first_name.getText(), tf_last_name.getText(), tf_email.getText());
                 } else if(!tf_password.getText().trim().equals(tf_confirm.getText().trim())){

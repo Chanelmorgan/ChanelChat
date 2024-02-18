@@ -17,5 +17,20 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
+      <Button fx:id="button_join_chat" layoutX="75.0" layoutY="107.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #98979B;" text="Join Chat" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="button_create_chat" layoutX="278.0" layoutY="107.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: #98979B;" text="Create Chat" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttobn_create_group" layoutX="491.0" layoutY="107.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: #98979B;" text="Create Group" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
