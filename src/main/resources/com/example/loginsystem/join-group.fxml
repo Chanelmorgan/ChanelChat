@@ -15,12 +15,12 @@
                     <font>
                         <Font name="Arial Bold" size="13.0" />
                     </font></TextField>
-                <Button fx:id="button_create_chat" layoutX="268.0" layoutY="372.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" style="-fx-background-color: #98979B; fx-shape: 'M 10 0 L 190 0 Q 200 0 200 10 L 200 90 Q 200 100 190 100 L 10 100 Q 0 100 0 90 L 0 10 Q 0 0 10 0 Z';" text="Join Chat" textFill="WHITE">
+                <Button fx:id="button_create_chat" layoutX="268.0" layoutY="360.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="151.0" style="-fx-background-color: #98979B; fx-shape: 'M 10 0 L 190 0 Q 200 0 200 10 L 200 90 Q 200 100 190 100 L 10 100 Q 0 100 0 90 L 0 10 Q 0 0 10 0 Z';" text="Join Chat" textFill="WHITE">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Button>
-                <Label layoutX="236.0" layoutY="51.0" prefHeight="45.0" prefWidth="216.0" text="Join Chat" textFill="WHITE">
+                <Label layoutX="236.0" layoutY="51.0" prefHeight="45.0" prefWidth="180.0" text="Join Chat" textFill="WHITE">
                     <font>
                         <Font name="Arial Bold" size="36.0" />
                     </font>

@@ -26,8 +26,6 @@ public class LoggedInController implements Initializable {
     private Button button_join_chat;
 
 
-
-    // allows use to interact with the widgets
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -59,4 +57,6 @@ public class LoggedInController implements Initializable {
     public void setUserInformation(String username){
         label_welcome.setText("Welcome " + username + "!");
     }
+
+
 }

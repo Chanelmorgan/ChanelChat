@@ -30,10 +30,12 @@ public class DBUtils {
             FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
             Parent root = loader.load();
 
+
             if (username != null) {
                 LoggedInController loggedInController = loader.getController();
                 loggedInController.setUserInformation(username);
             }
+
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle(title);
@@ -75,8 +77,10 @@ public class DBUtils {
                 psInsertStatement.setString(5, email);
                 psInsertStatement.executeUpdate();
 
-                // change the scene once the user log in/ creates an account
+                // change the scene once the user log in/ creates an account\
+                SessionManager.setUsername(username);
                 changeScene(event, "Logged-in.fxml", "Welcome!", username);
+
             }
 
 
@@ -132,6 +136,7 @@ public class DBUtils {
                     String retrievedChannel = resultSet.getString("first_name");
                     if(retrievedPassword.equals(password)){
                         // change the scence
+                        SessionManager.setUsername(username);
                         changeScene(event, "logged-in.fxml", "Welcome!", username);
 
                     } else {
