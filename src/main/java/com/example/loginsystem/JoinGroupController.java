@@ -27,6 +27,9 @@ public class JoinGroupController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 // creates the chat and takes you to that page
+                // change the scene to the chat
+                // should have some messaged about whether they can join or not
+                DBUtils.changeScene(actionEvent, "client-view.fxml", "Welcome!", null);
             }
         });
 

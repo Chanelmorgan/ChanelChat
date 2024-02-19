@@ -1,55 +1,88 @@
 package com.example.loginsystem;
 
-import java.io.IOException;
-import java.net.*;
-import java.util.Scanner;
+import javafx.scene.layout.VBox;
+
+import java.io.*;
+import java.net.Socket;
 
 public class Client {
 
-    // class variable
-    private DatagramSocket datagramSocket;
-    private InetAddress inetAddress;
-    private byte[] buffer;
-    private int port = 1234;
+    private  Socket socket;
+    private BufferedReader bufferedReader;
+    private BufferedWriter bufferedWriter;
 
-    // constructor
-    public Client(DatagramSocket datagramSocket, InetAddress inetAddress){
-        this.datagramSocket = datagramSocket;
-        this.inetAddress = inetAddress;
+    public Client(Socket socket){
+        try {
+            this.socket = socket;
+            this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+        } catch(IOException e){
+            e.printStackTrace();
+            System.out.println("Error creating client");
+            closeEverything(socket, bufferedReader, bufferedWriter);
+        }
     }
 
-    // Method to send and receive packets
-    public void sendThenReceive(){
-        // read information from the console
-        Scanner scanner = new Scanner(System.in);
+    // Method that sends messages to the server
+    public void sendMessageToServer(String messageToSend){
+        try {
+            bufferedWriter.write(messageToSend);
+            bufferedWriter.newLine(); // need to send over a new line so it knows the message has ended
+            bufferedWriter.flush(); // manually flushing the buffer because it won't be full
 
-        while(true){
-            try{
-                String messageToSend = scanner.nextLine();
-                buffer = messageToSend.getBytes();
-                DatagramPacket datagramPacket = new DatagramPacket(buffer, buffer.length, inetAddress, port);
-                datagramSocket.send(datagramPacket);
-                datagramSocket.receive(datagramPacket); // blocking operation, until the server sends something back
-                String messageFromServer = new String(datagramPacket.getData(), 0, datagramPacket.getLength());
-                System.out.println("The message you sent to the server: " + messageFromServer);
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-                break; // break out of the infinite loop
+
+        } catch(IOException e){
+            e.printStackTrace();
+            System.out.println("Error sending message to server.");
+            closeEverything(socket, bufferedReader, bufferedWriter);
+        }
+    }
+
+
+    //Method that receives the messages from the servers
+    public void receiveMessageFromServer(VBox vBox){
+        // new thread so that it won't be blocking the whole program
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(socket.isConnected()) {
+                    String messageFromServer = null;
+                    try {
+                        messageFromServer = bufferedReader.readLine();
+                        ClientController.addLabel(messageFromServer, vBox);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        System.out.println("Error receiving message from the server.");
+                        closeEverything(socket, bufferedReader, bufferedWriter);
+                        break;
+                    }
+
+                }
+
+
             }
+        }).start();
+    }
+
+    // Method to close all the resources that we are using - prevents null pointer exceptions
+    public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter){
+        try{
+            if(bufferedReader != null){
+                // closes the underlying streams as well
+                bufferedReader.close();
+            }
+            if(bufferedWriter != null){
+                bufferedWriter.close();
+            }
+            if(socket != null){
+                socket.close();
+            }
+
+        } catch(IOException e){
+            e.printStackTrace();
         }
 
-
     }
 
-
-
-    public static void main(String[] args) throws SocketException, UnknownHostException {
-        DatagramSocket datagramSocket = new DatagramSocket();
-        InetAddress inetAddress = InetAddress.getByName("localhost"); // losthost because in own computer
-        Client client = new Client(datagramSocket, inetAddress);
-        System.out.println("The program started... ");
-        client.sendThenReceive();
-
-    }
 
 }
