@@ -43,10 +43,14 @@ public class ClientController implements Initializable {
     @FXML
     private VBox vboxMessages;
 
+    @FXML
+    private Button button_exit;
+
     private Client client;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
 
         try {
             client = new Client(new Socket("localhost", 1234));
@@ -93,6 +97,18 @@ public class ClientController implements Initializable {
                     tfMessage.clear();
                 }
             }
+
+
+
+        });
+
+
+        button_exit.setOnAction(new EventHandler<ActionEvent>() {
+            String username = SessionManager.getUsername();
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                DBUtils.changeScene(actionEvent, "logged-in.fxml", "Welcome!", username);
+            }
         });
 
 
@@ -124,6 +140,8 @@ public class ClientController implements Initializable {
 
 
     }
+
+
 
 
 
