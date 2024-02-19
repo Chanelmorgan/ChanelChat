@@ -17,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
@@ -104,6 +105,7 @@ public class ClientController implements Initializable {
         hBox.setPadding(new Insets(5, 5, 5, 10));
 
         Text text = new Text(messageFromServer);
+        text.setFont(Font.font(25)); // Set the font size to 18 (adjust as needed)
         TextFlow textFlow = new TextFlow(text);
         textFlow.setStyle( "-fx-background-color: rgb(233, 233, 235);" +
                 " -fx-background-radius: 20px;");

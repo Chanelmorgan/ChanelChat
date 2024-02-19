@@ -32,9 +32,10 @@ public class CreateGropController implements Initializable {
 
         // get the users name from the database ??
         button_back.setOnAction(new EventHandler<ActionEvent>() {
+            String username = SessionManager.getUsername();
             @Override
             public void handle(ActionEvent actionEvent) {
-                DBUtils.changeScene(actionEvent, "logged-in.fxml", "Welcome!", null);
+                DBUtils.changeScene(actionEvent, "logged-in.fxml", "Welcome!", username);
             }
         });
 

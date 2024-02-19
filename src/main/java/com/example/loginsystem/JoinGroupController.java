@@ -18,8 +18,6 @@ public class JoinGroupController implements Initializable {
     @FXML
     private Button button_create_chat;
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -30,7 +28,7 @@ public class JoinGroupController implements Initializable {
                 // creates the chat and takes you to that page
                 // change the scene to the chat
                 // should have some messaged about whether they can join or not
-                DBUtils.changeScene(actionEvent, "client-view.fxml", "Welcome!", username);
+                DBUtils.changeScene(actionEvent, "client-view.fxml", "Client!", null);
             }
         });
 
