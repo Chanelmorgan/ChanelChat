@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="apMain" prefHeight="539.0" prefWidth="704.0" style="-fx-background-color: #B5A2E9;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.example.loginsystem.ServerController">
+<AnchorPane fx:id="apMain" prefHeight="539.0" prefWidth="704.0" style="-fx-background-color: #B5A2E9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginsystem.ServerController">
     <children>
-        <Button fx:id="buttonSend" layoutX="404" layoutY="338" text="Send" />
+
     </children>
     <TextField fx:id="tfMessage" layoutX="30.0" layoutY="467.0" prefHeight="41.0" prefWidth="527.0" promptText="Start typing..." />
     <ScrollPane fx:id="spMain" fitToWidth="true" layoutX="30" layoutY="65.0" prefHeight="357.0" prefWidth="616.0">
@@ -18,7 +18,7 @@
             <VBox fx:id="vboxMessages" prefHeight="357.0" prefWidth="609.0" />
         </content>
     </ScrollPane>
-    <Label layoutX="200.0" layoutY="14.0" text="Client Messenger" textFill="WHITE">
+    <Label layoutX="200.0" layoutY="14.0" prefHeight="43.0" prefWidth="330.0" text="Server Messenger" textFill="WHITE">
         <font>
             <Font name="Arial Rounded MT Bold" size="36.0" />
         </font>
