@@ -1,4 +1,4 @@
-package com.example.loginsystem.Server;
+package com.example.loginsystem;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +11,9 @@ import java.io.IOException;
 public class ServerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("server-view.fxml"));
         stage.setTitle("Server");
-        stage.setScene(new Scene(root, 478, 396));
+        stage.setScene(new Scene(root, 700, 500));
         stage.show();
     }
 

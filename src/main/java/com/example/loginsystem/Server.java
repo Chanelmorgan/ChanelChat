@@ -1,4 +1,4 @@
-package com.example.loginsystem.Server;
+package com.example.loginsystem;
 
 import javafx.scene.layout.VBox;
 

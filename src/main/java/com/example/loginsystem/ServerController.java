@@ -1,5 +1,6 @@
-package com.example.loginsystem.Server;
+package com.example.loginsystem;
 
+import com.example.loginsystem.Server;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
