@@ -55,7 +55,7 @@ public class Server {
                     String messageFromClient = null;
                     try {
                         messageFromClient = bufferedReader.readLine();
-                        HelloController.addLabel(messageFromClient, vBox);
+                        ServerController.addLabel(messageFromClient, vBox);
                     } catch (IOException e) {
                         e.printStackTrace();
                         System.out.println("Error receiving message from the client.");
