@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -73,33 +74,14 @@ public class ClientController implements Initializable {
         buttonSend.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                String messageToSend = tfMessage.getText();
-                if(!messageToSend.isEmpty()){
-                    HBox hBox = new HBox();
-                    hBox.setAlignment(Pos.CENTER_RIGHT);
-                    hBox.setPadding(new Insets(5,5,5,10));
-                    Text text = new Text(messageToSend);
-                    TextFlow textFlow = new TextFlow(text);
-
-                    // the styling
-                    textFlow.setStyle("-fx-color: rgb(239, 242, 255); " +
-                            "-fx-background-color: rgb(15, 125, 242);" +
-                            " -fx-background-radius: 20px;");
-
-                    textFlow.setPadding(new Insets(5, 10, 5,10));
-                    text.setFill(Color.color(0.934, 0.945, 0.996));
-
-                    // add this to the hBox
-                    hBox.getChildren().add(textFlow);
-                    vboxMessages.getChildren().add(hBox);
-
-                    client.sendMessageToServer(messageToSend);
-                    tfMessage.clear();
-                }
+                handleSendMessage();
             }
+        });
 
-
-
+        tfMessage.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                handleSendMessage();
+            }
         });
 
 
@@ -112,6 +94,32 @@ public class ClientController implements Initializable {
         });
 
 
+    }
+
+    private void handleSendMessage() {
+        String messageToSend = tfMessage.getText();
+        if (!messageToSend.isEmpty()) {
+            HBox hBox = new HBox();
+            hBox.setAlignment(Pos.CENTER_RIGHT);
+            hBox.setPadding(new Insets(5, 5, 5, 10));
+            Text text = new Text(messageToSend);
+            TextFlow textFlow = new TextFlow(text);
+
+            // the styling
+            textFlow.setStyle("-fx-color: rgb(239, 242, 255); " +
+                    "-fx-background-color: rgb(15, 125, 242);" +
+                    " -fx-background-radius: 20px;");
+
+            textFlow.setPadding(new Insets(5, 10, 5, 10));
+            text.setFill(Color.color(0.934, 0.945, 0.996));
+
+            // add this to the hBox
+            hBox.getChildren().add(textFlow);
+            vboxMessages.getChildren().add(hBox);
+
+            client.sendMessageToServer(messageToSend);
+            tfMessage.clear();
+        }
     }
 
     public static void addLabel(String messageFromServer, VBox vBox){
