@@ -13,6 +13,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -50,9 +51,9 @@ public class ServerController implements Initializable{
 
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
-            try{
+            try {
                 server = new Server(new ServerSocket(1234));
-            } catch(IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("ERROR CREATING THE SERVER");
             }
@@ -72,50 +73,57 @@ public class ServerController implements Initializable{
             server.receiveMessageFromClient(vboxMessages);
 
             // adding functionality to the send button
+
+
             buttonSend.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    // send the message to the client
-                    String messageToSend = tfMessage.getText();
+                    handleSendMessage();
+                }
+            });
 
-                    // check if the message is not empty
-                    if(!messageToSend.isEmpty()){
-                        // message is not empty
-                        HBox hBox = new HBox();
-                        hBox.setAlignment(Pos.CENTER_RIGHT);
-                        hBox.setPadding(new Insets(5, 5, 5, 10));
-
-                        Text text = new Text(messageToSend);
-                        // allows the text object to be styled so that it can be wrapped, etc
-                        TextFlow textFlow = new TextFlow(text);
-
-                        // the styling
-                        textFlow.setStyle("-fx-color: rgb(239, 242, 255); " +
-                                "-fx-background-color: rgb(15, 125, 242);" +
-                                " -fx-background-radius: 20px;");
-
-                        textFlow.setPadding(new Insets(5, 10, 5,10));
-                        text.setFill(Color.color(0.934, 0.945, 0.996));
-
-                        // add this to the hBox
-                        hBox.getChildren().add(textFlow);
-                        vboxMessages.getChildren().add(hBox);
-
-                        server.sendMessageToClient(messageToSend);
-                        tfMessage.clear();
-
-
-                    }
+            tfMessage.setOnKeyPressed(event -> {
+                if (event.getCode() == KeyCode.ENTER) {
+                    handleSendMessage();
                 }
             });
 
 
-
-
-
-
-
         }
+
+    private void handleSendMessage() {
+        String messageToSend = tfMessage.getText();
+        if (!messageToSend.isEmpty()) {
+            HBox hBox = new HBox();
+            hBox.setAlignment(Pos.CENTER_RIGHT);
+            hBox.setPadding(new Insets(5, 5, 5, 10));
+            Text text = new Text(messageToSend);
+            TextFlow textFlow = new TextFlow(text);
+
+            // the styling
+            textFlow.setStyle("-fx-color: rgb(239, 242, 255); " +
+                    "-fx-background-color: rgb(15, 125, 242);" +
+                    " -fx-background-radius: 20px;");
+
+            textFlow.setPadding(new Insets(5, 10, 5, 10));
+            text.setFill(Color.color(0.934, 0.945, 0.996));
+
+            // add this to the hBox
+            hBox.getChildren().add(textFlow);
+            vboxMessages.getChildren().add(hBox);
+
+            server.sendMessageToClient(messageToSend);
+            tfMessage.clear();
+        }
+    }
+
+
+
+
+
+
+
+
 
         public static void addLabel(String messageFromClient, VBox vBox){
             HBox hBox = new HBox();
