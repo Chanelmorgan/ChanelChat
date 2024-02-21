@@ -11,7 +11,7 @@
     <children>
         <AnchorPane prefHeight="497.0" prefWidth="701.0" style="-fx-background-color: #B5A2E9; -fx-border-radius: 50;">
             <children>
-                <TextField fx:id="tf_chat_name" layoutX="203.0" layoutY="174.0" prefHeight="33.0" prefWidth="281.0" promptText="Chat Name">
+                <TextField fx:id="tf_chat_name" layoutX="203.0" layoutY="142.0" prefHeight="33.0" prefWidth="281.0" promptText="Chat Name">
                     <font>
                         <Font name="Arial Bold" size="13.0" />
                     </font></TextField>
@@ -30,6 +30,16 @@
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Button>
+            <TextField fx:id="tf_host" layoutX="203.0" layoutY="199.0" prefHeight="33.0" prefWidth="281.0" promptText="Host">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_port" layoutX="203.0" layoutY="258.0" prefHeight="33.0" prefWidth="281.0" promptText="Port">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </TextField>
             </children>
         </AnchorPane>
     </children>

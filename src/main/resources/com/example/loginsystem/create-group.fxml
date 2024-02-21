@@ -30,6 +30,16 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
+            <TextField fx:id="tf_host" layoutX="204.0" layoutY="232.0" prefHeight="33.0" prefWidth="281.0" promptText="Host">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_port" layoutX="203.0" layoutY="288.0" prefHeight="33.0" prefWidth="281.0" promptText="Port">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </TextField>
             </children>
         </AnchorPane>
     </children>

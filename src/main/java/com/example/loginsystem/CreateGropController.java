@@ -18,6 +18,15 @@ public class CreateGropController implements Initializable {
     @FXML
     private Button button_create_chat;
 
+    @FXML
+    private TextField tf_chat_name;
+
+    @FXML
+    private TextField tf_host;
+
+    @FXML
+    private TextField tf_port;
+
 
 
     @Override
